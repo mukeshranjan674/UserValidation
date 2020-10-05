@@ -44,9 +44,9 @@ public class UserRegistration {
 	}
 	public boolean checkPassword() {
 
-		LOG.info("\nEnter Password ( minimum 8 characters , 1 capital letter)\n");
+		LOG.info("\nEnter Password ( minimum 8 characters ,1 capital letter, 1 digit)\n");
 		String input = sc.nextLine();
-		String regex = "(?=.*[A-Z]).{8,}";
+		String regex = "(?=.*[A-Z])(?=.*[0-9]).{8,}";
 		LOG.info("\n" + input);
 		return input.matches(regex) ;
 	}
