@@ -17,12 +17,20 @@ public class UserRegistration {
 		String regex = "^[A-Z][a-z]{2,}";
 		return input.matches(regex) ;
 	}
+	public boolean checkLastName() {
+
+		LOG.info("\nEnter Last Name\n");
+		String input = sc.next();
+		String regex = "^[A-Z][a-z]{2,}";
+		return input.matches(regex) ;
+	}
 		
 	
 	public static void main(String[] args) {
 		LOG.info("\n***** Welcome to User Registration System *****");
 		UserRegistration user = new UserRegistration();
 		LOG.info("\n" + user.checkFirstName());
+		LOG.info("\n" + user.checkLastName());
 	}
 
 }
