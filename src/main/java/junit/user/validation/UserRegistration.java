@@ -42,6 +42,14 @@ public class UserRegistration {
 		LOG.info("\n" + input);
 		return input.matches(regex) ;
 	}
+	public boolean checkPassword() {
+
+		LOG.info("\nEnter Password ( minimum 8 characters )\n");
+		String input = sc.nextLine();
+		String regex = ".{8,}";
+		LOG.info("\n" + input);
+		return input.matches(regex) ;
+	}
 		
 	
 	public static void main(String[] args) {
@@ -51,6 +59,7 @@ public class UserRegistration {
 		LOG.info("\n" + user.checkLastName());
 		LOG.info("\n" + user.checkEmail());
 		LOG.info("\n" + user.checkMobile());
+		LOG.info("\n" + user.checkPassword());
 	}
 
 }
