@@ -32,9 +32,13 @@ public class EmailValidationTest {
 
 	@Test
 	public void givenEmailAsVaribale_ShouldReturn_AsPerTheParameterResult() {
-		UserRegistration user = new UserRegistration();
-		boolean result = user.checkEmail(this.emailsTest);
-		Assert.assertEquals(this.expectedResult, result);
+		try {
+			UserRegistration user = new UserRegistration();
+			boolean result = user.checkEmail(this.emailsTest);
+			Assert.assertEquals(this.expectedResult, result);
+		}catch(InvalidUserException e) {
+			
+		}
 	}
 
 }

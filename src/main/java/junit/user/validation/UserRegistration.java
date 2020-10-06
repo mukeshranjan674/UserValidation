@@ -2,28 +2,43 @@ package junit.user.validation;
 
 public class UserRegistration {
 
-	public boolean checkFirstName(String input) {
+	public boolean checkFirstName(String input) throws InvalidUserException {
 		String regex = "^[A-Z][a-z]{2,}";
-		return input.matches(regex);
+		if (input.matches(regex))
+			return true;
+		else
+			throw new InvalidUserException("Invalid First Name");
 	}
 
-	public boolean checkLastName(String input) {
+	public boolean checkLastName(String input) throws InvalidUserException {
 		String regex = "^[A-Z][a-z]{2,}";
-		return input.matches(regex);
+		if (input.matches(regex))
+			return true;
+		else
+			throw new InvalidUserException("Invalid Last Name");
 	}
 
-	public boolean checkEmail(String input) {
+	public boolean checkEmail(String input) throws InvalidUserException {
 		String regex = "^(abc)([-/./+_]?[a-z0-9]+)?[a-z0-9]*[@][a-z1-9]+[/.][a-z]{2,3}([/.]?[a-z]{2,3})?$";
-		return input.matches(regex);
+		if (input.matches(regex))
+			return true;
+		else
+			throw new InvalidUserException("Invalid Email");
 	}
 
-	public boolean checkMobile(String input) {
+	public boolean checkMobile(String input) throws InvalidUserException {
 		String regex = "^[1-9]{1,3}[ ][6-9]{1}[0-9]{9}$";
-		return input.matches(regex);
+		if (input.matches(regex))
+			return true;
+		else
+			throw new InvalidUserException("Invalid Mobile Number");
 	}
 
-	public boolean checkPassword(String input) {
+	public boolean checkPassword(String input) throws InvalidUserException {
 		String regex = "(?=.{8,})(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]*[^a-zA-Z0-9 ][a-zA-Z0-9]*";
-		return input.matches(regex);
+		if (input.matches(regex))
+			return true;
+		else
+			throw new InvalidUserException("Invalid Password");
 	}
 }
