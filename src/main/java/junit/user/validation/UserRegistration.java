@@ -2,9 +2,11 @@ package junit.user.validation;
 
 public class UserRegistration {
 
+	UserValidationInterface userLambda = (input,exp) -> {return (input.matches(exp) ? true : false);};
+	
 	public boolean checkFirstName(String input) throws InvalidUserException {
 		String regex = "^[A-Z][a-z]{2,}";
-		if (input.matches(regex))
+		if(userLambda.check(input, regex))
 			return true;
 		else
 			throw new InvalidUserException("Invalid First Name");
@@ -12,7 +14,7 @@ public class UserRegistration {
 
 	public boolean checkLastName(String input) throws InvalidUserException {
 		String regex = "^[A-Z][a-z]{2,}";
-		if (input.matches(regex))
+		if(userLambda.check(input, regex))
 			return true;
 		else
 			throw new InvalidUserException("Invalid Last Name");
@@ -20,7 +22,7 @@ public class UserRegistration {
 
 	public boolean checkEmail(String input) throws InvalidUserException {
 		String regex = "^(abc)([-/./+_]?[a-z0-9]+)?[a-z0-9]*[@][a-z1-9]+[/.][a-z]{2,3}([/.]?[a-z]{2,3})?$";
-		if (input.matches(regex))
+		if(userLambda.check(input, regex))
 			return true;
 		else
 			throw new InvalidUserException("Invalid Email");
@@ -28,7 +30,7 @@ public class UserRegistration {
 
 	public boolean checkMobile(String input) throws InvalidUserException {
 		String regex = "^[1-9]{1,3}[ ][6-9]{1}[0-9]{9}$";
-		if (input.matches(regex))
+		if(userLambda.check(input, regex))
 			return true;
 		else
 			throw new InvalidUserException("Invalid Mobile Number");
@@ -36,7 +38,7 @@ public class UserRegistration {
 
 	public boolean checkPassword(String input) throws InvalidUserException {
 		String regex = "(?=.{8,})(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]*[^a-zA-Z0-9 ][a-zA-Z0-9]*";
-		if (input.matches(regex))
+		if(userLambda.check(input, regex))
 			return true;
 		else
 			throw new InvalidUserException("Invalid Password");
